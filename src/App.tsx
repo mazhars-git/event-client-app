@@ -5,7 +5,9 @@ import Footer from "./components/Shared/Footer";
 function App() {
   return (
     <>
-      <Events />
+      <div className="container mx-auto">
+        <Events />
+      </div>
       <Footer />
     </>
   );
