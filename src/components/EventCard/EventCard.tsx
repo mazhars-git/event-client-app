@@ -1,22 +1,3 @@
-// import { Button } from "../ui/button";
-
-// const EventCard = ({ event }: any) => {
-//   console.log(event);
-//   return (
-//     <div className="border p-5 m-3 rounded">
-//       <h1 className="text-2xl font-bold text-amber-500">Name: {event.title}</h1>
-//       <h4 className="font-semibold">Total Event: </h4>
-
-//       <div>
-//         <Button className="bg-green-600 text-white">Update</Button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default EventCard;
-
-// components/EventCard.tsx
 import {
   Card,
   CardContent,
@@ -25,6 +6,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Trash } from "lucide-react";
 
 type TCategory = "Work" | "Personal" | "Other";
 
@@ -56,9 +38,17 @@ export default function EventCard({ event }: EventCardProps) {
         <div className="inline-block px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
           {event.category}
         </div>
-        <Button variant="outline" size="sm" className="mt-2">
-          View Details
-        </Button>
+        <div className="text-center space-x-2">
+          <Button variant="outline" size="sm" className="mt-2">
+            Update
+          </Button>
+          <Button variant="outline" size="sm" className="mt-2">
+            Delete
+          </Button>
+          <Button variant="outline" size="sm" className="mt-2">
+            Archive
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
