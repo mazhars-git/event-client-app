@@ -38,13 +38,25 @@ export default function EventCard({ data }: EventCardProps) {
           {data.category}
         </div>
         <div className="text-center space-x-2">
-          <Button variant="outline" size="sm" className="mt-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-blue-400 text-white mt-2"
+          >
             Update
           </Button>
-          <Button variant="outline" size="sm" className="mt-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-red-400 text-white mt-2"
+          >
             Delete
           </Button>
-          <Button variant="outline" size="sm" className="mt-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-gray-400 text-white mt-2"
+          >
             Archive
           </Button>
         </div>

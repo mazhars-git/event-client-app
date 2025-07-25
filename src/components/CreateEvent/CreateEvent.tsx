@@ -54,80 +54,96 @@ const CreateEventForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white border border-gray-200 shadow-md p-6 rounded-xl w-full max-w-lg mx-auto"
-    >
-      <h2 className="text-xl font-semibold mb-4">Create New Event</h2>
+    <div className="bg-slate-200 min-h-screen">
+      <div className="container mx-auto pt-8 pb-4">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white border border-gray-200 shadow-md p-6 rounded-xl w-full max-w-lg mx-auto"
+        >
+          <h2 className="text-xl font-bold mb-4 text-center">
+            Create New Event
+          </h2>
 
-      <div className="grid gap-4">
-        <div>
-          <Label htmlFor="title">Title</Label>
-          <Input
-            id="title"
-            value={formData.title}
-            onChange={(e) => handleChange("title", e.target.value)}
-            placeholder="Enter title"
-            required
-          />
-        </div>
+          <div className="grid gap-4">
+            <div>
+              <Label className="mb-2" htmlFor="title">
+                Title
+              </Label>
+              <Input
+                id="title"
+                value={formData.title}
+                onChange={(e) => handleChange("title", e.target.value)}
+                placeholder="Enter title"
+                required
+              />
+            </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <Label htmlFor="date">Date</Label>
-            <Input
-              type="date"
-              id="date"
-              value={formData.date}
-              onChange={(e) => handleChange("date", e.target.value)}
-              required
-            />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label className="mb-2" htmlFor="date">
+                  Date
+                </Label>
+                <Input
+                  type="date"
+                  id="date"
+                  value={formData.date}
+                  onChange={(e) => handleChange("date", e.target.value)}
+                  required
+                />
+              </div>
+
+              <div>
+                <Label className="mb-2" htmlFor="time">
+                  Time
+                </Label>
+                <Input
+                  type="time"
+                  id="time"
+                  value={formData.time}
+                  onChange={(e) => handleChange("time", e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <Label className="mb-2" htmlFor="category">
+                Category
+              </Label>
+              <Select
+                value={formData.category}
+                onValueChange={(value) => handleChange("category", value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select category" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Work">Work</SelectItem>
+                  <SelectItem value="Personal">Personal</SelectItem>
+                  <SelectItem value="Other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label className="mb-2" htmlFor="notes">
+                Notes
+              </Label>
+              <Textarea
+                id="notes"
+                value={formData.notes}
+                onChange={(e) => handleChange("notes", e.target.value)}
+                placeholder="Add any notes..."
+              />
+            </div>
+
+            <Button type="submit" className="mt-2 w-full">
+              Create Event
+            </Button>
           </div>
-
-          <div>
-            <Label htmlFor="time">Time</Label>
-            <Input
-              type="time"
-              id="time"
-              value={formData.time}
-              onChange={(e) => handleChange("time", e.target.value)}
-              required
-            />
-          </div>
-        </div>
-
-        <div>
-          <Label htmlFor="category">Category</Label>
-          <Select
-            value={formData.category}
-            onValueChange={(value) => handleChange("category", value)}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Select category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="Work">Work</SelectItem>
-              <SelectItem value="Personal">Personal</SelectItem>
-              <SelectItem value="Other">Other</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <div>
-          <Label htmlFor="notes">Notes</Label>
-          <Textarea
-            id="notes"
-            value={formData.notes}
-            onChange={(e) => handleChange("notes", e.target.value)}
-            placeholder="Add any notes..."
-          />
-        </div>
-
-        <Button type="submit" className="mt-2 w-full">
-          Create Event
-        </Button>
+        </form>
       </div>
-    </form>
+    </div>
   );
 };
 

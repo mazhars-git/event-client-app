@@ -3,7 +3,7 @@ import Footer from "../Shared/Footer";
 
 const HomePage = () => {
   return (
-    <div className="">
+    <div className="bg-slate-400">
       <Events />
       <Footer />
     </div>
