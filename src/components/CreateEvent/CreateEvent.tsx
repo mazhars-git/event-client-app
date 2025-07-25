@@ -24,11 +24,11 @@ export type Event = {
   category: TCategory;
 };
 
-type Props = {
-  onSubmit: (event: Event) => void;
-};
+// type Props = {
+//   onSubmit: (event: Event) => void;
+// };
 
-const CreateEventForm = ({ onSubmit }: Props) => {
+const CreateEventForm = () => {
   const [formData, setFormData] = useState<Event>({
     title: "",
     date: "",
@@ -43,7 +43,7 @@ const CreateEventForm = ({ onSubmit }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    // onSubmit(formData);
     setFormData({
       title: "",
       date: "",

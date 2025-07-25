@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className=" bg-black text-white py-5">
+    <div className=" bg-black text-white py-5">
       <div className="container mx-auto flex justify-between">
         <div className="flex gap-5">
           <h1 className="font-bold">E</h1>
@@ -10,7 +10,7 @@ const Footer = () => {
           <h1>Social Links</h1>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

@@ -6,11 +6,10 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Trash } from "lucide-react";
 
 type TCategory = "Work" | "Personal" | "Other";
 
-type Event = {
+type TEvent = {
   title: string;
   date: string;
   time: string;
@@ -19,24 +18,24 @@ type Event = {
 };
 
 interface EventCardProps {
-  event: Event;
+  data: TEvent;
 }
 
-export default function EventCard({ event }: EventCardProps) {
+export default function EventCard({ data }: EventCardProps) {
   return (
-    <Card className="w-full max-w-md shadow-xl rounded-2xl border border-gray-200">
+    <Card className="w-full max-w-md shadow-xl rounded-2xl border border-gray-300">
       <CardHeader>
-        <CardTitle className="text-xl font-semibold">{event.title}</CardTitle>
+        <CardTitle className="text-xl font-semibold">{data.title}</CardTitle>
         <CardDescription className="text-sm text-muted-foreground">
-          {event.date} • {event.time}
+          {data.date} • {data.time}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="text-sm text-gray-700">
-          <span className="font-medium">Notes:</span> {event.notes}
+          <span className="font-medium">Notes:</span> {data.notes}
         </div>
         <div className="inline-block px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
-          {event.category}
+          {data.category}
         </div>
         <div className="text-center space-x-2">
           <Button variant="outline" size="sm" className="mt-2">
