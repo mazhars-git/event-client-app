@@ -6,6 +6,8 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import UpdateEvent from "../UpdateEvent/UpdateEvent";
 
 type TCategory = "Work" | "Personal" | "Other";
 
@@ -38,13 +40,15 @@ export default function EventCard({ data }: EventCardProps) {
           {data.category}
         </div>
         <div className="text-center space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="bg-blue-400 text-white mt-2"
-          >
-            Update
-          </Button>
+          <Link to="/update-event">
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-blue-400 text-white mt-2"
+            >
+              Update
+            </Button>
+          </Link>
           <Button
             variant="outline"
             size="sm"
