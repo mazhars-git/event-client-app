@@ -24,11 +24,11 @@ export type Event = {
   category: TCategory;
 };
 
-// type Props = {
-//   onSubmit: (event: Event) => void;
-// };
+type Props = {
+  onSubmit: (event: Event) => void;
+};
 
-const CreateEventForm = () => {
+const CreateEventForm = ({ onSubmit }: Props) => {
   const [formData, setFormData] = useState<Event>({
     title: "",
     date: "",
@@ -41,9 +41,9 @@ const CreateEventForm = () => {
     setFormData({ ...formData, [key]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // onSubmit(formData);
+    onSubmit(formData);
     setFormData({
       title: "",
       date: "",
@@ -51,6 +51,23 @@ const CreateEventForm = () => {
       notes: "",
       category: "Work",
     });
+    try {
+      const res = await fetch("https://event-server-app.vercel.app/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to create event");
+
+      const data = await res.json();
+      console.log("Created Event:", data);
+      // optionally reset form or show a success message
+    } catch (error) {
+      console.error("Error creating event:", error);
+    }
   };
 
   return (

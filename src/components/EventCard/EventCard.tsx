@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import UpdateEvent from "../UpdateEvent/UpdateEvent";
 
 type TCategory = "Work" | "Personal" | "Other";
 
