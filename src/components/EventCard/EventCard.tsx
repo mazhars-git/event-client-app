@@ -23,6 +23,25 @@ interface EventCardProps {
 }
 
 export default function EventCard({ data }: EventCardProps) {
+  // Delete Button in your component
+  const handleDelete = async (id: string) => {
+    try {
+      const res = await fetch(
+        `https://your-backend-domain.com/api/events/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!res.ok) throw new Error("Failed to delete event");
+
+      console.log("Event deleted successfully");
+      // Optionally refresh data or update UI
+    } catch (err) {
+      console.error("Delete error:", err);
+    }
+  };
+
   return (
     <Card className="w-full max-w-md shadow-2xl rounded-xl border border-gray-300 bg-cyan-800">
       <CardHeader>
@@ -54,6 +73,7 @@ export default function EventCard({ data }: EventCardProps) {
             variant="ghost"
             size="sm"
             className="bg-red-400 text-white mt-2"
+            onClick={() => handleDelete(event._id)}
           >
             Delete
           </Button>
