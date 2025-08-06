@@ -6,7 +6,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 type TCategory = "Work" | "Personal" | "Other";
 
@@ -23,6 +23,13 @@ interface EventCardProps {
 }
 
 export default function EventCard({ data }: EventCardProps) {
+  const navigate = useNavigate();
+  //update form
+
+  const handleEdit = (id: string) => {
+    navigate(`/update/${id}`);
+  };
+
   // Delete Button in your component
   const handleDelete = async (id: string) => {
     try {
@@ -60,15 +67,15 @@ export default function EventCard({ data }: EventCardProps) {
           {data.category}
         </div>
         <div className="text-center space-x-2">
-          <Link to="/update-event">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="bg-sky-500 text-white mt-2"
-            >
-              Update
-            </Button>
-          </Link>
+          <Button
+            onClick={() => handleEdit(data._id)}
+            variant="ghost"
+            size="sm"
+            className="bg-sky-500 text-white mt-2"
+          >
+            Update
+          </Button>
+
           <Button
             variant="ghost"
             size="sm"
