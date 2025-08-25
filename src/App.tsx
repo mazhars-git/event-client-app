@@ -4,6 +4,7 @@ import Navbar from "./components/Shared/Navbar";
 import HomePage from "./components/Home/Home";
 import CreateEvent from "./components/CreateEvent/CreateEvent";
 import UpdateEvent, { type Event } from "./components/UpdateEvent/UpdateEvent";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/create-event" element={<CreateEvent />} />
+          <Route path="/login" element={<Login />} />
           <Route
             path="/update-event"
             element={

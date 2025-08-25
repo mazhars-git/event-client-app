@@ -19,6 +19,9 @@ const Navbar = () => {
           <Button variant="link" asChild>
             <Link to="/create-event">CreateEvent</Link>
           </Button>
+          <Button variant="link" asChild>
+            <Link to="/login">Login</Link>
+          </Button>
         </div>
       </nav>
     </div>
